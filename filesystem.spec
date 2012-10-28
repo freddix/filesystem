@@ -4,7 +4,7 @@
 Summary:	Common directories
 Name:		filesystem
 Version:	3.2
-Release:	7
+Release:	8
 License:	GPL
 Group:		Base
 BuildRequires:	automake
@@ -38,7 +38,7 @@ This package provides common directories for debug information.
 rm -rf $RPM_BUILD_ROOT
 
 install -d \
-	$RPM_BUILD_ROOT/{initrd,run,sys} \
+	$RPM_BUILD_ROOT/{run,sys} \
 	$RPM_BUILD_ROOT/etc/{X11/xinit/xinitrc.d,X11/xorg.conf.d,certs,logrotate.d,security,sysconfig/wmstyle,xdg/{autostart,menus}} \
 	$RPM_BUILD_ROOT%{_sysconfdir}/{cron.d,cron.{hourly,daily,weekly,monthly},cron} \
 	$RPM_BUILD_ROOT/home/{users,services} \
@@ -54,8 +54,7 @@ install -d \
 	$RPM_BUILD_ROOT%{_fontsdir}/{{100,75}dpi,OTF,Speedo,Type1/{afm,pfm},TTF,cyrillic,local,misc} \
 	$RPM_BUILD_ROOT{%{_idldir},%{_privsepdir}} \
 	$RPM_BUILD_ROOT%{_libdir}/browser-plugins \
-	$RPM_BUILD_ROOT%{_datadir}/gnome-2.0/ui	\
-	$RPM_BUILD_ROOT/usr/lib/initrd-utils/{bin,dev,etc,lib,media/{cdrom,fs},proc,sbin,sys,tmp}
+	$RPM_BUILD_ROOT%{_datadir}/gnome-2.0/ui
 
 > %{name}.lang
 install -d $RPM_BUILD_ROOT/usr/share/help/C
@@ -67,20 +66,7 @@ done
 
 %if "%{_lib}" == "lib64"
 install -d \
-	$RPM_BUILD_ROOT/usr/lib64/{browser-plugins,cmake,initrd,mozilla/extensions,pkgconfig,security}
-%endif
-
-%if "%{pld_release}" == "ac"
-rmdir $RPM_BUILD_ROOT/usr/include/X11
-# X11
-install -d $RPM_BUILD_ROOT/usr/X11R6/share
-for manp in man{1,2,3,4,5,6,7,8} ; do
-	install -d $RPM_BUILD_ROOT/usr/X11R6/man/$manp
-	for mloc in it ko pl; do
-		install -d $RPM_BUILD_ROOT/usr/X11R6/man/$mloc/$manp
-	done
-done
-install -d $RPM_BUILD_ROOT/usr/share/wm-properties
+	$RPM_BUILD_ROOT/usr/lib64/{browser-plugins,cmake,mozilla/extensions,pkgconfig,security}
 %endif
 
 install -d \
@@ -136,22 +122,9 @@ check_filesystem_dirs
 %dir /etc/xdg/menus
 %dir /home/users
 %attr(751,root,adm) %dir /home/services
-%dir /initrd
 %dir /run
 %dir /usr/lib/firmware
 %dir /usr/lib/security
-%dir /usr/lib/initrd-utils
-%dir /usr/lib/initrd-utils/bin
-%dir /usr/lib/initrd-utils/dev
-%dir /usr/lib/initrd-utils/etc
-%dir /usr/lib/initrd-utils/lib
-%dir /usr/lib/initrd-utils/media
-%dir /usr/lib/initrd-utils/media/cdrom
-%dir /usr/lib/initrd-utils/media/fs
-%dir /usr/lib/initrd-utils/proc
-%dir /usr/lib/initrd-utils/sbin
-%dir /usr/lib/initrd-utils/sys
-%dir /usr/lib/initrd-utils/tmp
 %dir /sys
 %dir /usr/include/security
 %dir /usr/lib/cgi-bin
@@ -197,7 +170,6 @@ check_filesystem_dirs
 %dir /usr/lib64/security
 %dir /usr/lib64/browser-plugins
 %dir /usr/lib64/cmake
-%dir /usr/lib64/initrd
 %dir /usr/lib64/mozilla
 %dir /usr/lib64/mozilla/extensions
 %dir /usr/lib64/pkgconfig
