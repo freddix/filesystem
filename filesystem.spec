@@ -4,7 +4,7 @@
 Summary:	Common directories
 Name:		filesystem
 Version:	3.2
-Release:	12
+Release:	13
 License:	GPL
 Group:		Base
 BuildRequires:	automake
@@ -39,7 +39,7 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d \
 	$RPM_BUILD_ROOT/{run,sys} \
-	$RPM_BUILD_ROOT/etc/{X11/xinit/xinitrc.d,X11/xorg.conf.d,certs,logrotate.d,security,sysconfig/wmstyle,xdg/{autostart,menus}} \
+	$RPM_BUILD_ROOT/etc/{X11/xinit/xinitrc.d,X11/xorg.conf.d,certs,default,logrotate.d,pam.d,security,skel/tmp,sysconfig/wmstyle,xdg/{autostart,menus}} \
 	$RPM_BUILD_ROOT%{_sysconfdir}/{cron.d,cron.{hourly,daily,weekly,monthly},cron} \
 	$RPM_BUILD_ROOT/home/{users,services} \
 	$RPM_BUILD_ROOT/usr/lib/{firmware,security} \
@@ -111,10 +111,14 @@ check_filesystem_dirs
 %dir /etc/X11/xinit/xinitrc.d
 %dir /etc/X11/xorg.conf.d
 %attr(751,root,root) %dir /etc/certs
+%attr(750,root,root) %dir %{_sysconfdir}/default
 %attr(751,root,root) %dir /etc/security
 %attr(640,root,crontab) %dir %{_sysconfdir}/cron
 %attr(640,root,crontab) %dir /etc/cron.*
+%attr(755,root,root) /etc/pam.d
 %dir /etc/logrotate.d
+%dir /etc/skel
+%dir /etc/skel/tmp
 %dir /etc/sysconfig
 %dir /etc/sysconfig/wmstyle
 %dir /etc/xdg
