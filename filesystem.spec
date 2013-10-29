@@ -4,7 +4,7 @@
 Summary:	Common directories
 Name:		filesystem
 Version:	3.2
-Release:	13
+Release:	14
 License:	GPL
 Group:		Base
 BuildRequires:	automake
@@ -46,7 +46,7 @@ install -d \
 	$RPM_BUILD_ROOT/usr/include/security \
 	$RPM_BUILD_ROOT/usr/lib/{cgi-bin,debug,pkgconfig} \
 	$RPM_BUILD_ROOT/var/lib/color/icc \
-	$RPM_BUILD_ROOT/usr/share/{backgrounds,desktop-directories,gnome/help,color/{icc,targets},man/man{n,l},man/pl/mann,pkgconfig,sounds/sf2,themes/Default,thumbnailers,wallpapers,gnome/wm-properties,xsessions} \
+	$RPM_BUILD_ROOT/usr/share/{backgrounds,desktop-directories,{gnome,mate}/help,color/{icc,targets},man/man{n,l},man/pl/mann,pkgconfig,sounds/sf2,themes/Default,thumbnailers,wallpapers,{gnome,mate}/wm-properties,xsessions} \
 	$RPM_BUILD_ROOT/usr/src/{debug,examples} \
 	$RPM_BUILD_ROOT/var/lock/subsys \
 	$RPM_BUILD_ROOT/var/log/archive \
@@ -137,6 +137,8 @@ check_filesystem_dirs
 %dir /usr/share/desktop-directories
 %dir /usr/share/gnome
 %dir /usr/share/gnome/help
+%dir /usr/share/mate
+%dir /usr/share/mate/help
 %dir /usr/share/help
 %dir /usr/share/help/C
 %dir /usr/share/color
