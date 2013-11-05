@@ -4,7 +4,7 @@
 Summary:	Common directories
 Name:		filesystem
 Version:	3.2
-Release:	14
+Release:	15
 License:	GPL
 Group:		Base
 BuildRequires:	automake
@@ -39,7 +39,7 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d \
 	$RPM_BUILD_ROOT/{run,sys} \
-	$RPM_BUILD_ROOT/etc/{X11/xinit/xinitrc.d,X11/xorg.conf.d,certs,default,logrotate.d,pam.d,security,skel/tmp,sysconfig/wmstyle,xdg/{autostart,menus}} \
+	$RPM_BUILD_ROOT/etc/{X11/xinit/xinitrc.d,X11/xorg.conf.d,certs,default,logrotate.d,pam.d,security,skel/tmp,sound,sysconfig/wmstyle,xdg/{autostart,menus}} \
 	$RPM_BUILD_ROOT%{_sysconfdir}/{cron.d,cron.{hourly,daily,weekly,monthly},cron} \
 	$RPM_BUILD_ROOT/home/{users,services} \
 	$RPM_BUILD_ROOT/usr/lib/{firmware,security} \
@@ -119,6 +119,7 @@ check_filesystem_dirs
 %dir /etc/logrotate.d
 %dir /etc/skel
 %dir /etc/skel/tmp
+%dir /etc/sound
 %dir /etc/sysconfig
 %dir /etc/sysconfig/wmstyle
 %dir /etc/xdg
