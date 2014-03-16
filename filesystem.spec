@@ -4,8 +4,8 @@
 Summary:	Common directories
 Name:		filesystem
 Version:	3.2
-Release:	16
-License:	GPL
+Release:	19
+License:	G8L
 Group:		Base
 BuildRequires:	automake
 Requires:	FHS
@@ -50,7 +50,7 @@ install -d \
 	$RPM_BUILD_ROOT/usr/src/{debug,examples} \
 	$RPM_BUILD_ROOT/var/lock/subsys \
 	$RPM_BUILD_ROOT/var/log/archive \
-	$RPM_BUILD_ROOT{%{_aclocaldir},%{_desktopdir}/docklets,%{_iconsdir},%{_pixmapsdir}/backgrounds,%{_datadir}/gtk-engines} \
+	$RPM_BUILD_ROOT{%{_aclocaldir},%{_desktopdir}/{docklets,screensavers},%{_iconsdir},%{_pixmapsdir}/backgrounds,%{_datadir}/gtk-engines} \
 	$RPM_BUILD_ROOT%{_fontsdir}/{{100,75}dpi,OTF,Speedo,Type1/{afm,pfm},TTF,cyrillic,local,misc} \
 	$RPM_BUILD_ROOT{%{_idldir},%{_privsepdir}} \
 	$RPM_BUILD_ROOT%{_libdir}/browser-plugins \
@@ -59,7 +59,7 @@ install -d \
 > %{name}.lang
 install -d $RPM_BUILD_ROOT/usr/share/help/C
 
-for lang in ar bg bn_IN ca cs da de el en_GB es eu fa fi fr gl gu he hi hr hu id it ja ko lt lv mk ml nb nds nl oc pa pl ps pt pt_BR ro ru sl sr sr@latin sv ta te th tr uk vi zh_CN zh_HK zh_TW; do
+for lang in ar ast bg bn_IN ca ca@valencia cs da de el en_GB es eu fa fi fr gl gu he hi hr hu id it ja ko lt lv mk ml nb nds nl oc pa pl ps pt pt_BR ro ru sl sr sr@latin sv ta te th tr uk vi zh_CN zh_HK zh_TW; do
 	install -d $RPM_BUILD_ROOT/usr/share/help/${lang}
 	echo "%%lang($lang) %dir /usr/share/help/${lang}" >> %{name}.lang
 done
@@ -165,6 +165,7 @@ check_filesystem_dirs
 %dir %{_datadir}/gtk-engines
 %dir %{_desktopdir}
 %dir %{_desktopdir}/docklets
+%dir %{_desktopdir}/screensavers
 %dir %{_iconsdir}
 %dir %{_idldir}
 %dir %{_pixmapsdir}
