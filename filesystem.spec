@@ -4,7 +4,7 @@
 Summary:	Common directories
 Name:		filesystem
 Version:	3.2
-Release:	19
+Release:	20
 License:	G8L
 Group:		Base
 BuildRequires:	automake
@@ -59,7 +59,7 @@ install -d \
 > %{name}.lang
 install -d $RPM_BUILD_ROOT/usr/share/help/C
 
-for lang in ar ast bg bn_IN ca ca@valencia cs da de el en_GB es eu fa fi fr gl gu he hi hr hu id it ja ko lt lv mk ml nb nds nl oc pa pl ps pt pt_BR ro ru sl sr sr@latin sv ta te th tr uk vi zh_CN zh_HK zh_TW; do
+for lang in ar as ast bg bn_IN ca ca@valencia cs da de el en_GB es eu fa fi fr gl gu he hi hr hu id it ja kn ko lt lv mk ml mr nb nds nl oc pa pl ps pt pt_BR ro ru sl sr sr@latin sv ta te th tr uk vi zh_CN zh_HK zh_TW; do
 	install -d $RPM_BUILD_ROOT/usr/share/help/${lang}
 	echo "%%lang($lang) %dir /usr/share/help/${lang}" >> %{name}.lang
 done
