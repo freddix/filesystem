@@ -3,9 +3,9 @@
 
 Summary:	Common directories
 Name:		filesystem
-Version:	3.2
-Release:	20
-License:	G8L
+Version:	201408
+Release:	0.1
+License:	GPL
 Group:		Base
 BuildRequires:	automake
 Requires:	FHS
@@ -113,8 +113,6 @@ check_filesystem_dirs
 %attr(751,root,root) %dir /etc/certs
 %attr(750,root,root) %dir %{_sysconfdir}/default
 %attr(751,root,root) %dir /etc/security
-%attr(640,root,crontab) %dir %{_sysconfdir}/cron
-%attr(640,root,crontab) %dir /etc/cron.*
 %attr(755,root,root) /etc/pam.d
 %dir /etc/logrotate.d
 %dir /etc/skel
@@ -160,7 +158,7 @@ check_filesystem_dirs
 %dir /var/lib/color
 %dir /var/lib/color/icc
 %attr(700,root,root) %dir /var/lock/subsys
-%attr(751,root,logs) %dir /var/log/archive
+%attr(755,root,root) %dir /var/log/archive
 %dir %{_aclocaldir}
 %dir %{_datadir}/gtk-engines
 %dir %{_desktopdir}
